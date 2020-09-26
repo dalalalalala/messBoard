@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/css/main.css">
+      <!-- 当浏览器收到html的响应内容后，就要开始从上到下依次开始解析
+      当在解析的过程中，如果发现:
+      link
+      script
+      img
+      iframe
+      video
+      audio等
+      带src或者href(针对link)属性的标签，浏览器将自动对这些资源发起新的请求 -->
+</head>
+<body>
+    <div class="container">
+      <h1>留言板</h1>
+      <a class="btn btn-success" href="/post">发表留言</a>
+      <br><br>
+    </div>
+    <div class="container">
+      <ul class="list-group">
+         
+          {{each comments}}
+            <li class="list-group-item">
+              {{$value.name}}说：{{$value.message}}
+              <span class="float-right">{{$value.dateTime}}</span>
+            </li>
+          {{/each}}
+      </ul>
+    </div>
+</body>
+</html>
